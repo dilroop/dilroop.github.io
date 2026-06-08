@@ -1,8 +1,10 @@
-import { Search } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { ArrowUpRight, Search } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useDeferredValue, useMemo, useState } from 'react'
 
 import { PageIntro } from '@/features/cv/components/PageIntro'
+import { slugifyProjectName } from '@/features/cv/projectUtils'
 import { useCvData } from '@/features/cv/useCvData'
 
 export function ProjectsPage() {
@@ -57,6 +59,15 @@ export function ProjectsPage() {
             transition={{ delay: index * 0.06, duration: 0.4 }}
             className="rounded-[2rem] border border-black/10 bg-[var(--panel)] p-6 dark:border-white/10"
           >
+            {project.imageUrl ? (
+              <div className="mb-5 overflow-hidden rounded-[1.5rem] border border-black/10 dark:border-white/10">
+                <img
+                  src={project.imageUrl}
+                  alt={project.imageAlt || project.name}
+                  className="h-52 w-full object-cover"
+                />
+              </div>
+            ) : null}
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-sm uppercase tracking-[0.24em] text-[var(--muted)]">
@@ -75,7 +86,7 @@ export function ProjectsPage() {
             <p className="mt-3 text-sm font-medium leading-7 text-[var(--foreground)]">{project.impact}</p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {project.stack.map((item) => (
+            {project.stack.map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-black/10 bg-black/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-[var(--muted)] dark:border-white/10 dark:bg-white/5"
@@ -84,6 +95,15 @@ export function ProjectsPage() {
                 </span>
               ))}
             </div>
+
+            <Link
+              to="/projects/$projectSlug"
+              params={{ projectSlug: slugifyProjectName(project.name) }}
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm transition hover:border-[var(--accent)] hover:text-[var(--accent)] dark:border-white/10"
+            >
+              View project
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </motion.article>
         ))}
       </div>

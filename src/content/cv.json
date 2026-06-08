@@ -6,6 +6,17 @@
     "availability": "Senior mobile roles and contract opportunities",
     "tagline": "Senior mobile developer with 10+ years of experience building scalable Android, Flutter, and cross-platform products with strong architecture, CI/CD, and UX discipline.",
     "email": "mailto:dilroop.singh@gmail.com",
+    "phone": "+642040000601",
+    "cvUrl": "/Dilroop-Singh-CV.pdf",
+    "imageUrl": "",
+    "imageAlt": "Dilroop Singh portrait",
+    "roles": [
+      "Senior Mobile Application Developer",
+      "Senior Android Developer",
+      "Jetpack Compose Engineer",
+      "Kotlin Multiplatform Developer",
+      "Flutter Delivery Lead"
+    ],
     "focusAreas": [
       "Android architecture",
       "Jetpack Compose",
@@ -53,6 +64,11 @@
       "I build high-quality mobile products with Kotlin, Jetpack Compose, KMM, Flutter, and modern architectural patterns.",
       "My work usually sits at the intersection of product delivery, architecture, performance, and release reliability.",
       "I have led rewrites, cross-platform feature delivery, white-label pipelines, analytics instrumentation, and architecture decisions across teams working asynchronously."
+    ],
+    "hobbies": [
+      "AI and ComfyUI experimentation",
+      "3D printing",
+      "Movies"
     ]
   },
   "skillGroups": [
@@ -76,7 +92,14 @@
       "impact": "Modernised the UI layer, established architecture patterns for the team, and enabled reliable repeatable releases through GitHub Actions.",
       "period": "2026",
       "featured": true,
+      "imageUrl": "",
+      "imageAlt": "OrderMeal project preview",
       "stack": ["Kotlin", "Jetpack Compose", "Flutter", "GitHub Actions", "ADRs"],
+      "details": [
+        "Led the Android rewrite from legacy UI to Jetpack Compose.",
+        "Owned release automation for multiple white-label client apps.",
+        "Used ADRs and cross-team technical discussion to guide architecture."
+      ],
       "links": []
     },
     {
@@ -85,7 +108,14 @@
       "impact": "Improved cross-platform delivery speed while protecting client-specific releases through stronger CI/CD pipelines.",
       "period": "2022-2026",
       "featured": true,
+      "imageUrl": "",
+      "imageAlt": "Octopus Energy project preview",
       "stack": ["KMM", "Kotlin", "Jetpack Compose", "MVVM", "StateFlow", "Hilt", "SwiftUI"],
+      "details": [
+        "Shared business logic between Android and iOS using Kotlin Multiplatform.",
+        "Built Compose UI with MVVM, StateFlow, and sealed classes.",
+        "Protected white-label client flows with stronger CI/CD pipelines."
+      ],
       "links": []
     },
     {
@@ -94,7 +124,14 @@
       "impact": "Delivered production-grade features for an app used by more than one million users, with analytics, testing support, and release involvement.",
       "period": "2021-2022",
       "featured": true,
+      "imageUrl": "",
+      "imageAlt": "ANZ goMoney project preview",
       "stack": ["Android", "MVVM", "Adobe Analytics", "Mocks", "Agile"],
+      "details": [
+        "Implemented Open Banking data-sharing features as the sole Android developer on the workstream.",
+        "Added Adobe Analytics instrumentation and stronger test mocks.",
+        "Supported releases and resolved production issues in a high-scale app."
+      ],
       "links": []
     },
     {
@@ -103,7 +140,14 @@
       "impact": "Shipped and maintained Android and Flutter apps plus supporting libraries and device tooling for operations at scale.",
       "period": "2018-2021",
       "featured": false,
+      "imageUrl": "",
+      "imageAlt": "Foodstuffs project preview",
       "stack": ["Android", "Flutter", "Kotlin Coroutines", "SAP UI5", "REST", "OData", "Mockito"],
+      "details": [
+        "Architected a store operations workflow used across 70+ supermarket locations.",
+        "Maintained Android and Flutter apps with analytics and wireframing input.",
+        "Built shared libraries and a custom Android launcher for managed work devices."
+      ],
       "links": []
     }
   ],
