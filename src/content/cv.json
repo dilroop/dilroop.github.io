@@ -1,0 +1,226 @@
+{
+  "profile": {
+    "name": "Dilroop Singh",
+    "role": "Senior Mobile Application Developer focused on Android, Kotlin Multiplatform, Jetpack Compose, and delivery at scale.",
+    "location": "Rolleston, Selwyn, New Zealand",
+    "availability": "Senior mobile roles and contract opportunities",
+    "tagline": "Senior mobile developer with 10+ years of experience building scalable Android, Flutter, and cross-platform products with strong architecture, CI/CD, and UX discipline.",
+    "email": "mailto:dilroop.singh@gmail.com",
+    "focusAreas": [
+      "Android architecture",
+      "Jetpack Compose",
+      "Kotlin Multiplatform",
+      "CI/CD pipelines",
+      "Cross-platform delivery"
+    ],
+    "metrics": [
+      {
+        "label": "Years experience",
+        "value": "10+"
+      },
+      {
+        "label": "Largest app reach",
+        "value": "1M+"
+      },
+      {
+        "label": "Store rollout",
+        "value": "70+"
+      }
+    ],
+    "socials": [
+      {
+        "label": "Email",
+        "url": "mailto:dilroop.singh@gmail.com"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/dilroop"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dilroopsingh/"
+      },
+      {
+        "label": "Play Store",
+        "url": "https://play.google.com/store/apps/details?id=com.dsb.notepad"
+      },
+      {
+        "label": "APKPure",
+        "url": "https://apkpure.com/developer/From%20Heart"
+      }
+    ],
+    "summary": [
+      "I build high-quality mobile products with Kotlin, Jetpack Compose, KMM, Flutter, and modern architectural patterns.",
+      "My work usually sits at the intersection of product delivery, architecture, performance, and release reliability.",
+      "I have led rewrites, cross-platform feature delivery, white-label pipelines, analytics instrumentation, and architecture decisions across teams working asynchronously."
+    ]
+  },
+  "skillGroups": [
+    {
+      "name": "Mobile",
+      "items": ["Kotlin", "Jetpack Compose", "Coroutines", "Flow", "Flutter", "SwiftUI (basic)"]
+    },
+    {
+      "name": "Architecture",
+      "items": ["MVVM", "Clean Architecture", "Dependency Injection", "KMM", "Agentic Coding"]
+    },
+    {
+      "name": "Platform and Delivery",
+      "items": ["GitHub CI/CD", "GraphQL", "Firebase", "Mixpanel", "REST", "Typescript", "SAP UI5", "TDD"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "OrderMeal Android Rewrite and Release Pipeline",
+      "summary": "Led the rewrite of a legacy Android app to Jetpack Compose while also owning release automation across multiple white-label clients.",
+      "impact": "Modernised the UI layer, established architecture patterns for the team, and enabled reliable repeatable releases through GitHub Actions.",
+      "period": "2026",
+      "featured": true,
+      "stack": ["Kotlin", "Jetpack Compose", "Flutter", "GitHub Actions", "ADRs"],
+      "links": []
+    },
+    {
+      "name": "Octopus Energy KMM Shared Feature Platform",
+      "summary": "Delivered Kotlin Multiplatform features that shared business logic across Android and iOS without disrupting white-label clients.",
+      "impact": "Improved cross-platform delivery speed while protecting client-specific releases through stronger CI/CD pipelines.",
+      "period": "2022-2026",
+      "featured": true,
+      "stack": ["KMM", "Kotlin", "Jetpack Compose", "MVVM", "StateFlow", "Hilt", "SwiftUI"],
+      "links": []
+    },
+    {
+      "name": "ANZ Open Banking in goMoney",
+      "summary": "Built Open Banking data-sharing features as the sole Android developer working in the goMoney app codebase.",
+      "impact": "Delivered production-grade features for an app used by more than one million users, with analytics, testing support, and release involvement.",
+      "period": "2021-2022",
+      "featured": true,
+      "stack": ["Android", "MVVM", "Adobe Analytics", "Mocks", "Agile"],
+      "links": []
+    },
+    {
+      "name": "Foodstuffs Order Picking Platform",
+      "summary": "Led architecture and development for the online order-picking solution used across New World and PAK’nSAVE stores.",
+      "impact": "Shipped and maintained Android and Flutter apps plus supporting libraries and device tooling for operations at scale.",
+      "period": "2018-2021",
+      "featured": false,
+      "stack": ["Android", "Flutter", "Kotlin Coroutines", "SAP UI5", "REST", "OData", "Mockito"],
+      "links": []
+    }
+  ],
+  "experience": [
+    {
+      "company": "OrderMeal LTD",
+      "role": "Mobile Developer Lead",
+      "location": "Remote",
+      "start": "Mar 2026",
+      "end": "Present",
+      "summary": "Leading development of restaurant and customer apps in Kotlin and Flutter, while driving architecture decisions and team delivery across time zones.",
+      "achievements": [
+        "Lead development of restaurant and customer apps in Kotlin and Flutter.",
+        "Contributed to technical architecture through ADRs and cross-team discussions.",
+        "Led a team of five mostly senior developers across NZT and IST.",
+        "Led the full rewrite of a legacy Android app to Jetpack Compose and established new architecture patterns adopted across the team.",
+        "Designed and owned the GitHub Actions release pipeline for reliable repeatable multi-client releases."
+      ],
+      "stack": ["Kotlin", "Jetpack Compose", "Flutter", "GitHub Actions", "ADRs"]
+    },
+    {
+      "company": "Octopus Energy Group",
+      "role": "Senior Mobile Developer",
+      "location": "Remote",
+      "start": "Apr 2022",
+      "end": "Mar 2026",
+      "summary": "Delivered Kotlin Multiplatform features, Compose UI, and CI/CD improvements across Android and iOS-facing work in a white-label environment.",
+      "achievements": [
+        "Led development of Kotlin Multiplatform Mobile features that enabled shared business logic across Android and iOS.",
+        "Delivered cross-platform features while protecting white-label clients through robust CI/CD test pipelines.",
+        "Built Jetpack Compose UI with MVVM, StateFlow, and sealed classes for robust state management.",
+        "Improved maintainability by integrating Hilt and improving dependency structure.",
+        "Collaborated asynchronously with UK and India teams on high-impact features.",
+        "Contributed to architecture decisions through ADRs and cross-team discussion.",
+        "Provided occasional SwiftUI support for iOS feature parity."
+      ],
+      "stack": ["KMM", "Jetpack Compose", "MVVM", "StateFlow", "Hilt", "SwiftUI"]
+    },
+    {
+      "company": "ANZ",
+      "role": "Senior Android Developer",
+      "location": "Wellington, New Zealand",
+      "start": "Sep 2021",
+      "end": "Mar 2022",
+      "summary": "Worked as the sole Android developer for Open Banking data-sharing features inside the goMoney app.",
+      "achievements": [
+        "Implemented Open Banking data-sharing features in the ANZ goMoney app used by 1M+ users.",
+        "Improved user experience through detailed behaviour implementation and UI refinement.",
+        "Integrated Adobe Analytics to capture meaningful usage insights using MVVM patterns.",
+        "Added test mocks with the in-house Mockifer library to improve test reliability.",
+        "Participated in Agile ceremonies and contributed to platform-wide ADRs.",
+        "Supported releases and resolved production issues."
+      ],
+      "stack": ["Android", "MVVM", "Adobe Analytics", "Mockifer", "Agile"]
+    },
+    {
+      "company": "Foodstuffs South Island Ltd",
+      "role": "Senior Mobile App Developer",
+      "location": "New Zealand",
+      "start": "Apr 2018",
+      "end": "Sep 2021",
+      "summary": "Led architecture and development of online order-picking solutions and supporting mobile platform work across supermarket operations.",
+      "achievements": [
+        "Led development and architecture for the online order-picking solution used across 70+ New World and PAK’nSAVE stores.",
+        "Maintained Android and Flutter apps, including UI/UX wireframing and analytics integration.",
+        "Built reliable async operations using Kotlin Coroutines, Dart Futures, and JavaScript Promises.",
+        "Developed internal Maven, Gradle, and Dart libraries for shared functionality.",
+        "Built a custom Android system launcher for dedicated work devices deployed via MDM.",
+        "Implemented REST and OData APIs plus SAP UI5 features in Typescript and JavaScript.",
+        "Practiced TDD with unit and integration tests using Mockito."
+      ],
+      "stack": ["Android", "Flutter", "Kotlin Coroutines", "SAP UI5", "Typescript", "Mockito"]
+    },
+    {
+      "company": "Lab3",
+      "role": "Mobile Application Developer",
+      "location": "Christchurch, New Zealand",
+      "start": "Oct 2017",
+      "end": "Feb 2018",
+      "summary": "Contributed part-time to mobile and web projects while broadening backend and hybrid app development skills.",
+      "achievements": [
+        "Learned Django backend development and the Ionic framework while contributing to mobile and web projects."
+      ],
+      "stack": ["Django", "Ionic", "Mobile", "Web"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Aspire2 International Group",
+      "qualification": "Diploma in Computing - Level 7",
+      "start": "2017",
+      "end": "2018",
+      "location": "Christchurch, New Zealand",
+      "details": [
+        "Formal computing study completed in New Zealand with focus on software development foundations."
+      ]
+    },
+    {
+      "institution": "LP University",
+      "qualification": "Master of Technology - Intelligent System",
+      "start": "2014",
+      "end": "2015",
+      "location": "Punjab, India",
+      "details": [
+        "Focused on artificial intelligence, machine learning, robotics, image processing, and neural networks."
+      ]
+    },
+    {
+      "institution": "LP University",
+      "qualification": "Bachelor of Technology in Computer Science",
+      "start": "2010",
+      "end": "2014",
+      "location": "Punjab, India",
+      "details": [
+        "Built core engineering and computer science fundamentals.",
+        "This was the period where Android became the main focus and the first apps were built."
+      ]
+    }
+  ]
+}
