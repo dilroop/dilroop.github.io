@@ -14,6 +14,10 @@ export function RotatingRole({ fallback, roles }: RotatingRoleProps) {
     const normalized = roles.filter((role) => role.trim().length > 0)
     return normalized.length ? normalized : [fallback]
   }, [fallback, roles])
+  const longestRoleLength = useMemo(
+    () => safeRoles.reduce((max, role) => Math.max(max, role.length), fallback.length),
+    [fallback.length, safeRoles],
+  )
 
   const [roleIndex, setRoleIndex] = useState(0)
   const [visibleText, setVisibleText] = useState('')
@@ -49,7 +53,12 @@ export function RotatingRole({ fallback, roles }: RotatingRoleProps) {
 
   return (
     <span className="inline-flex min-h-[1.5em] items-center gap-1">
-      <span>{visibleText}</span>
+      <span
+        className="inline-block text-left"
+        style={{ width: `${Math.max(longestRoleLength + 1, 18)}ch` }}
+      >
+        {visibleText || '\u00A0'}
+      </span>
       <span className="inline-block h-[1.05em] w-[2px] animate-pulse bg-[var(--accent)]" />
     </span>
   )

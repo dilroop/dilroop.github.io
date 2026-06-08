@@ -4,20 +4,23 @@ import { motion } from 'motion/react'
 
 import { PageIntro } from '@/features/cv/components/PageIntro'
 import { RotatingRole } from '@/features/cv/components/RotatingRole'
-import { slugifyProjectName } from '@/features/cv/projectUtils'
+import { TechBadge } from '@/features/cv/components/TechBadge'
 import { useCvData } from '@/features/cv/useCvData'
 
-export function AboutPage() {
+export function HomePage() {
   const { data } = useCvData()
-  const featuredProjects = data.projects.filter((project) => project.featured).slice(0, 2)
   const email = data.profile.email.trim()
   const phone = data.profile.phone?.trim() ?? ''
   const cvUrl = data.profile.cvUrl?.trim() ?? ''
 
   return (
-    <div className="space-y-14">
-      <section className="panel overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
-        <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+    <div className="space-y-[max(3.5rem,14vh)]">
+      <section className="panel overflow-hidden px-6 py-[max(2.25rem,11vh)] sm:px-8">
+        <div
+          className={`grid gap-10 lg:items-center ${
+            data.profile.imageUrl ? 'lg:grid-cols-[1.08fr_0.92fr]' : ''
+          }`}
+        >
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,12 +47,7 @@ export function AboutPage() {
             {data.profile.focusAreas.length ? (
               <div className="flex flex-wrap gap-2">
                 {data.profile.focusAreas.slice(0, 5).map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-black/10 bg-black/5 px-3 py-2 text-sm dark:border-white/10 dark:bg-white/5"
-                  >
-                    {item}
-                  </span>
+                  <TechBadge key={item} label={item} />
                 ))}
               </div>
             ) : null}
@@ -58,28 +56,15 @@ export function AboutPage() {
               {data.profile.metrics.map((metric) => (
                 <article
                   key={metric.label}
-                  className="rounded-[1.5rem] border border-black/10 bg-black/5 px-5 py-5 dark:border-white/10 dark:bg-white/5"
+                  className="rounded-[1.5rem] border border-[color-mix(in_srgb,var(--accent)_18%,transparent)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--accent-soft)_60%,white_44%),rgba(255,255,255,0.56))] px-5 py-5 shadow-[0_12px_40px_rgba(15,118,110,0.08)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]"
                 >
                   <p className="font-display text-3xl font-semibold">{metric.value}</p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
+                  <p className="mt-2 text-xs uppercase tracking-[0.22em] text-[var(--accent)]">
                     {metric.label}
                   </p>
                 </article>
               ))}
             </div>
-
-            {data.profile.summary.length ? (
-              <div className="grid gap-3 sm:grid-cols-2">
-                {data.profile.summary.slice(0, 2).map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className="rounded-[1.5rem] border border-black/10 bg-white/70 p-4 text-sm leading-7 text-[var(--muted)] dark:border-white/10 dark:bg-white/5"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            ) : null}
 
             <div className="flex flex-wrap gap-4 text-sm text-[var(--muted)]">
               {data.profile.location ? (
@@ -121,14 +106,14 @@ export function AboutPage() {
               ) : null}
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-3 text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)] dark:border-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--accent)_30%,transparent)] bg-[color-mix(in_srgb,var(--accent-soft)_45%,transparent)] px-5 py-3 text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 View Projects
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-3 text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)] dark:border-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--accent)_30%,transparent)] bg-[color-mix(in_srgb,var(--accent-soft)_45%,transparent)] px-5 py-3 text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 Contact
                 <ArrowUpRight className="h-4 w-4" />
@@ -136,13 +121,13 @@ export function AboutPage() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.08 }}
-            className="grid gap-4"
-          >
-            {data.profile.imageUrl ? (
+          {data.profile.imageUrl ? (
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.08 }}
+              className="grid gap-4"
+            >
               <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-black/5 dark:border-white/10 dark:bg-white/5">
                 <img
                   src={data.profile.imageUrl}
@@ -150,36 +135,15 @@ export function AboutPage() {
                   className="h-[28rem] w-full object-cover"
                 />
               </div>
-            ) : (
-              <div className="grid gap-4">
-                {featuredProjects.map((project) => (
-                  <Link
-                    key={project.name}
-                    to="/projects/$projectSlug"
-                    params={{ projectSlug: slugifyProjectName(project.name) }}
-                    className="rounded-[1.75rem] border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.62))] p-5 transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]"
-                  >
-                    <p className="text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
-                      {project.period}
-                    </p>
-                    <h2 className="mt-2 font-display text-2xl font-semibold">{project.name}</h2>
-                    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{project.summary}</p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--accent)]">
-                      Open project
-                      <ArrowUpRight className="h-4 w-4" />
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </motion.div>
+            </motion.div>
+          ) : null}
         </div>
       </section>
 
       <PageIntro
         eyebrow="Skills"
-        title="Core technologies and working methods."
-        description="The home page stays lighter now, so skills are shown as compact groups instead of long descriptive blocks."
+        title="Core Mobile Stack"
+        description="Tools used across delivery, architecture, and release work."
       >
         <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {data.skillGroups.map((group, index) => (
@@ -188,17 +152,12 @@ export function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.18 + index * 0.06, duration: 0.35 }}
-              className="rounded-[1.75rem] border border-black/10 bg-black/5 p-5 dark:border-white/10 dark:bg-white/5"
+              className="rounded-[1.75rem] border border-[color-mix(in_srgb,var(--accent)_18%,transparent)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--accent-soft)_55%,white_45%),rgba(255,255,255,0.58))] p-5 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]"
             >
-              <p className="text-sm uppercase tracking-[0.24em] text-[var(--muted)]">{group.name}</p>
+              <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent)]">{group.name}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-sm dark:border-white/10 dark:bg-white/5"
-                  >
-                    {item}
-                  </span>
+                  <TechBadge key={item} label={item} />
                 ))}
               </div>
             </motion.article>
@@ -208,7 +167,7 @@ export function AboutPage() {
 
       <PageIntro
         eyebrow="About Me"
-        title="A delivery-focused mobile engineer."
+        title="Delivery Focused Engineer"
         description={data.profile.role}
       >
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -219,23 +178,18 @@ export function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08, duration: 0.45 }}
-                className="rounded-[2rem] border border-black/10 bg-black/5 p-5 text-sm leading-7 text-[var(--muted)] dark:border-white/10 dark:bg-white/5 sm:text-base"
+                className="rounded-[2rem] border border-[color-mix(in_srgb,var(--accent)_18%,transparent)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--accent-soft)_42%,white_50%),rgba(255,255,255,0.62))] p-5 text-sm leading-7 text-[var(--muted)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] sm:text-base"
               >
                 {paragraph}
               </motion.p>
             ))}
           </section>
 
-          <section className="rounded-[2rem] border border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.62))] p-5 dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]">
-            <p className="text-sm uppercase tracking-[0.24em] text-[var(--muted)]">Focus Areas</p>
+          <section className="rounded-[2rem] border border-[color-mix(in_srgb,var(--accent)_18%,transparent)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--accent-soft)_52%,white_50%),rgba(255,255,255,0.66))] p-5 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]">
+            <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent)]">Focus Areas</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {data.profile.focusAreas.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-black/10 bg-white/70 px-3 py-2 text-sm dark:border-white/10 dark:bg-white/5"
-                >
-                  {item}
-                </span>
+                <TechBadge key={item} label={item} />
               ))}
             </div>
 
@@ -259,64 +213,13 @@ export function AboutPage() {
       </PageIntro>
 
       <PageIntro
-        eyebrow="Featured Projects"
-        title="Selected work with clear operational impact."
-        description="Each card can open a dedicated project page. If you later add project screenshots, they appear automatically."
-      >
-        <section className="grid gap-4 xl:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <motion.article
-              key={project.name}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.06, duration: 0.4 }}
-              className="rounded-[2rem] border border-black/10 bg-[var(--panel)] p-6 dark:border-white/10"
-            >
-              {project.imageUrl ? (
-                <div className="mb-5 overflow-hidden rounded-[1.5rem] border border-black/10 dark:border-white/10">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.imageAlt || project.name}
-                    className="h-52 w-full object-cover"
-                  />
-                </div>
-              ) : null}
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-[var(--muted)]">
-                    {project.period}
-                  </p>
-                  <h3 className="mt-2 font-display text-2xl font-semibold">{project.name}</h3>
-                </div>
-                <span className="rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                  Featured
-                </span>
-              </div>
-
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)] sm:text-base">{project.summary}</p>
-              <p className="mt-3 text-sm font-medium leading-7 text-[var(--foreground)]">{project.impact}</p>
-
-              <Link
-                to="/projects/$projectSlug"
-                params={{ projectSlug: slugifyProjectName(project.name) }}
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm transition hover:border-[var(--accent)] hover:text-[var(--accent)] dark:border-white/10"
-              >
-                View project
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </motion.article>
-          ))}
-        </section>
-      </PageIntro>
-
-      <PageIntro
         eyebrow="Contact"
-        title="Open to senior mobile roles and good product work."
-        description="Short and direct on the home page. The full contact page still keeps the complete link list."
+        title="Open to Senior Mobile Roles"
+        description="Direct contact details and current public links."
       >
         <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[2rem] border border-black/10 bg-black/5 p-6 dark:border-white/10 dark:bg-white/5">
-            <p className="text-sm uppercase tracking-[0.24em] text-[var(--muted)]">Primary channel</p>
+          <div className="rounded-[2rem] border border-[color-mix(in_srgb,var(--accent)_18%,transparent)] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--accent-soft)_48%,white_52%),rgba(255,255,255,0.66))] p-6 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]">
+            <p className="text-sm uppercase tracking-[0.24em] text-[var(--accent)]">Primary channel</p>
             {email ? (
               <a
                 href={email}
@@ -346,7 +249,7 @@ export function AboutPage() {
                 initial={{ opacity: 0, x: 18 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.07, duration: 0.35 }}
-                className="rounded-[1.75rem] border border-black/10 bg-[var(--panel)] px-5 py-4 transition-transform hover:-translate-y-0.5 dark:border-white/10"
+                className="rounded-[1.75rem] border border-[color-mix(in_srgb,var(--accent)_18%,transparent)] bg-[var(--panel)] px-5 py-4 transition-transform hover:-translate-y-0.5"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="font-medium">{social.label}</span>

@@ -13,7 +13,7 @@ export function PageIntro({ children, description, eyebrow, title }: PageIntroPr
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
-      className="space-y-5"
+      className="space-y-5 py-[1vh]"
     >
       <div className="space-y-3">
         <p className="text-sm uppercase tracking-[0.3em] text-[var(--muted)]">{eyebrow}</p>

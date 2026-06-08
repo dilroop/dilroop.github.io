@@ -49,7 +49,7 @@ const rootRoute = createRootRouteWithContext<RouterContext>()({
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: lazyRouteComponent(() => import('@/features/cv/routes/AboutPage'), 'AboutPage'),
+  component: lazyRouteComponent(() => import('@/features/cv/routes/HomePage'), 'HomePage'),
 })
 
 const projectsRoute = createRoute({
